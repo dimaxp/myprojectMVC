@@ -1,0 +1,35 @@
+{
+  "db" : {
+    "server":"localhost",
+    "dbname":"wspace",
+    "user":"root",
+    "pwd":"12345"
+  },
+  "urls":{
+    "show article":{
+      "path":"/",
+      "controller":"DIMA\\WSPACE\\Controllers\\IndexController::indexAction",
+      "method": "GET"
+    },
+    "add cell":{
+      "path":"/addcel",
+      "controller":"DIMA\\WSPACE\\Controllers\\CellController::showCellAction",
+      "method": "GET"
+    },
+    "registration":{
+      "path":"/account/registration",
+      "controller":"DIMA\\WSPACE\\Controllers\\AccountController::registrationAction",
+      "method": "POST"
+    },
+
+    "gotovoCell":{
+      "path":"/cell/gotovo/{id:\\d+}",
+      "controller":"DIMA\\WSPACE\\Controllers\\CellController::gotovoCellAction",
+      "method": "GET"
+    }
+
+
+
+
+  }
+}
