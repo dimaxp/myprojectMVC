@@ -30,13 +30,14 @@ class Controller
         return $controllerData;
     }
 
-    protected function generateResponse($view, $view_zametka, array $data=[],
+
+    protected function generateResponse($view, array $data=[],
                                         $template='template_view.php')
     {
         $response = new Response();
 
         $response->setBody(
-            $this->render($view, $view_zametka, $data, $template)
+            $this->render($view, $data, $template)
         );
 
         return $response;
@@ -52,8 +53,10 @@ class Controller
 
         return $response;
     }
-    public function render($view,$view_zametka, array $data,
-                                     $template='template_view.php')
+
+
+    public function render($view, array $data,
+                              $template='template_view.php')
     {
         extract($data);
         ob_start();
@@ -62,4 +65,6 @@ class Controller
         ob_end_clean();
         return $page;
     }
+
+
 }

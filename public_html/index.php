@@ -12,3 +12,6 @@ $app = new DIMA\WSPACE\Base\Application($file);
 
 $response = $app->handleRequest($request);
 $response->send();
+
+
+var_dump($id);

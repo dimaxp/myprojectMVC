@@ -38,8 +38,6 @@
 
 <div><?php include_once $view; ?></div>
 
-<div><?php include_once $view_zametka; ?></div>
-
 
 </body>
 <script  src="/static/js/sendForm.js"></script>

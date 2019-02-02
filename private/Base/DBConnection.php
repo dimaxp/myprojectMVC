@@ -7,7 +7,7 @@ class DBConnection
     private $server = 'localhost';
     private $db_name = 'wspace';
     private $username = 'root';
-    private $pwd = '12345';
+    private $pwd = '';
 
    public $connection;
 

@@ -11,6 +11,15 @@
       "controller":"DIMA\\WSPACE\\Controllers\\IndexController::indexAction",
       "method": "GET"
     },
+
+    "panel":{
+      "path":"/panel",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::showPanelAction",
+      "method": "GET"
+    },
+
+
+
     "add cell":{
       "path":"/addcel",
       "controller":"DIMA\\WSPACE\\Controllers\\CellController::showCellAction",
@@ -22,9 +31,9 @@
       "method": "POST"
     },
 
-    "gotovoCell":{
+    "gotovoZadacha":{
       "path":"/cell/gotovo/{id:\\d+}",
-      "controller":"DIMA\\WSPACE\\Controllers\\CellController::gotovoCellAction",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::gotovoCellAction",
       "method": "GET"
     }
 

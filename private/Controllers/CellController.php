@@ -16,16 +16,18 @@ class CellController extends Controller
     public function showCellAction(){
 
         $view = 'cell_view.php';
-        $view_zametka = 'zametka_view.php';
         $data = $this->CellModel->getAllCell();
-        return parent::generateResponse($view,$view_zametka, $data);
+        return parent::generateResponse($view, $data);
     }
 
 
-    public function gotovoCellAction($id) {
+    public function gotovoCellAction($request) {
 
- //  $chto = $this->CellModel->gotovaCell($request);
-var_dump($id);
+        $getData = $request->params();
+
+
+$this->CellModel->gotovaCell($getData);
+
     }
 
 

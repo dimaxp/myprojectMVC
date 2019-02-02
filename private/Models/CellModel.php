@@ -12,18 +12,18 @@ class CellModel
     }
 
     public function getAllCell(){
-        $sql = "SELECT * FROM Users";
+        $sql = "SELECT * FROM Zadachi";
         return $this->db->execute($sql, $params);
     }
 
     public function gotovaCell($id){
+$chto = $id['id'];
 
 
 
-
-       // $sql = "DELETE FROM Users WHERE id=:id";
-    //  $params = ['id'=>$id];
-     //   return $this->db->execute($sql, $params);
+    $sql = 'UPDATE Users SET `name`=:name WHERE `id`=:id';
+  $params = ['id'=>$chto, 'name'=>'7747'];
+   return $this->db->execute($sql, $params);
     }
 
 
