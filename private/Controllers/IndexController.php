@@ -10,6 +10,7 @@ class IndexController extends Controller
     {
         $title = 'Главная';
         $view = 'index_view.php';
+        $template = 'glavnaya_template.php';
 
 
 
@@ -17,7 +18,7 @@ class IndexController extends Controller
             'title' => $title
         ];
 
-        return parent::generateResponse($view, $data);
+        return parent::generateResponse($view, $data, $template);
     }
 
 }

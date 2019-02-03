@@ -20,10 +20,10 @@
 
 
 
-    "add cell":{
-      "path":"/addcel",
-      "controller":"DIMA\\WSPACE\\Controllers\\CellController::showCellAction",
-      "method": "GET"
+    "add_cell":{
+      "path":"/panel/addzadacha",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zadachaDobavitAction",
+      "method": "POST"
     },
     "registration":{
       "path":"/account/registration",
@@ -31,9 +31,15 @@
       "method": "POST"
     },
 
+    "acc_auth":{
+      "path":"/account/auth",
+      "controller":"DIMA\\WSPACE\\Controllers\\AccountController::authAction",
+      "method": "POST"
+    },
+
     "gotovoZadacha":{
-      "path":"/cell/gotovo/{id:\\d+}",
-      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::gotovoCellAction",
+      "path":"/zadacha/gotovo/{id:\\d+}",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zadachaGotovaAction",
       "method": "GET"
     }
 

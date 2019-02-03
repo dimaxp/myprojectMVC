@@ -10,6 +10,7 @@ namespace DIMA\WSPACE\Models;
 
 
 use DIMA\WSPACE\Base\DBConnection;
+use DIMA\WSPACE\Base\Cookies;
 
 class AccountModel
 {
@@ -19,6 +20,7 @@ class AccountModel
     const PWD_ERROR = "PWD_ERROR";
     const USER_AUTH = "USER_AUTH";
     const DB_ERROR = "DB_ERROR";
+    const MAIL_EXISTS = "MAIL_EXISTS";
 
     private $db;
     public function __construct()
@@ -34,11 +36,29 @@ class AccountModel
         return $answer;
     }
 
+
+    public function mailExists($userData){
+        $sql = 'SELECT email FROM user WHERE email =:email';
+        $params = ['email'=>$userData['email']];
+
+        $answer = $this->db->execute($sql, $params, false);
+        return $answer;
+    }
+
+
+
     public function addUser($userData){
 
         if ($this->loginExists($userData)){
             return self::USER_EXISTS;
         }
+
+        if ($this->mailExists($userData)){
+            return self::MAIL_EXISTS;
+        }
+
+
+
 
         $sql = "INSERT INTO user (login, hash, email)
               VALUES (:login, :hash, :email)";
@@ -52,6 +72,7 @@ class AccountModel
         if($result === false) {
             return self::DB_ERROR;
         }
+    $_SESSION['login'] = $userData['login'];
         return self::USER_ADDED;
     }
 
@@ -68,12 +89,15 @@ class AccountModel
             return self::LOGIN_ERROR;
         }
 
-        $hash = $result['hash'];
+ $hash = $result[0]['hash'];
+
 
         if (!password_verify($userData['pwd'], $hash)){
             return self::PWD_ERROR;
         }
 
+        setCookie('1','1', 300000);
+    $_SESSION['login'] = $userData['login'];
         return self::USER_AUTH;
     }
 

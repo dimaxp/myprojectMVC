@@ -29,7 +29,14 @@
             window.location.href = "/panel";
         } else if (response === "USER_AUTH"){
             window.location.href = "/panel";
-        } else {
+        }
+
+        else if (response === "USER_EXISTS"){
+
+        }
+
+
+        else {
             console.log("вывод ошибки данных");
         }
     }

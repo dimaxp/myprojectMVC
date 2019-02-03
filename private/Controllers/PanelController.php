@@ -31,10 +31,18 @@ class PanelController extends Controller
 
     public function zadachaGotovaAction($request) {
         $getData = $request->params();
-
         $this->PanelModel->GotovaZadacha($getData);
-
     }
+
+    public function zadachaDobavitAction($request) {
+        $postData = $request->post();
+      $this->PanelModel->dobavitZadacha($postData);
+       // return parent::generateAjaxResponse($answer);
+    }
+
+
+
+
 
 
 

@@ -1,0 +1,11 @@
+img {width: 200px; height: 100%;}
+.container {           display: flex; margin: 20px auto;    max-width: 1000px;}
+.left {flex:2; display: flex; background: red}
+.right {flex:1; background: green}
+.padding {
+    padding: 8px;
+}
+
+.margin {
+    margin: 5px;
+}

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__ . '/../vendor/autoload.php';
 
 
@@ -13,5 +14,3 @@ $app = new DIMA\WSPACE\Base\Application($file);
 $response = $app->handleRequest($request);
 $response->send();
 
-
-var_dump($id);
