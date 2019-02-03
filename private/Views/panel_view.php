@@ -49,7 +49,7 @@
 
 
             <? foreach ($zadachi as $key => $zadacha  ): ?>
-                <div class="row zadacha">
+                <div class="row zadacha skroy">
                     <div class="data col-md-2 col-3">31.07.2018</div>
                     <div class="zadacha_one  col-md-8 col-7"> <? echo $zadacha['zadacha'] ?></div>
                     <div class="gotovo col-2 text-right"><a href="/zadacha/gotovo/<? echo $zadacha['id'] ?>" class="bezperezagruza fa fa-check-circle" aria-hidden="true"></a></div>
@@ -67,7 +67,7 @@
         <!--начало правого большого блока-->
 
         <div class="right col-lg-4 col-md-8 offset-xl-2 offset-md-2 offset-lg-1">
-            <form name="add_zametka" action="#">
+            <form name="add_zametka" action="/panel/addzametka">
                 <div class="form-group row justify-content-center text-center">
                     <legend>Форма для добавления заметки</legend>
                     <br><br>
@@ -85,30 +85,18 @@
 
 
 
-
-            <div class="row justify-content-center">
+            <? foreach ($zametki as $key => $zametka  ): ?>
+            <div class="row justify-content-center skroy">
                 <div class="col-md-10 block_zapis_zametki">
                     <div class="delet_zametka text-right"><i class="fa fa-times" aria-hidden="true"></i></div>
-                    <p>Пример заметки</p>
+                    <p><? echo $zametka['text_zametka'] ?></p>
                 </div>
             </div>
-
-
-            <div class="row justify-content-center">
-                <div class="col-md-10 block_zapis_zametki">
-                    <div class="delet_zametka text-right"><i class="fa fa-times" aria-hidden="true"></i></div>
-                    <p>Пример заметки</p>
-                </div>
-            </div>
+            <? endforeach ?>
 
 
 
-            <div class="row justify-content-center">
-                <div class="col-md-10 block_zapis_zametki">
-                    <div class="delet_zametka text-right"><i class="fa fa-times" aria-hidden="true"></i></div>
-                    <p>Пример заметки</p>
-                </div>
-            </div>
+
 
         </div>
 
@@ -136,13 +124,3 @@
     </div>
 
 </div>
-
-
-
-
-
-<? var_dump($zadachi); ?>
-
-
-
-<? var_dump($zametki); ?>

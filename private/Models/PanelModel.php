@@ -10,8 +10,9 @@ use DIMA\WSPACE\Base\DBConnection;
 class PanelModel
 {
 
-    const ZADACHA_ADDED = "USER_ADDED";
-    const ZADACHA_PROBLEMA = "USER_EXISTS";
+    const ZADACHA_ADDED = "ZADACHA_ADDED";
+    const ZADACHA_PROBLEMA = "ZADACHA_EXISTS";
+    const ZADACHA_GOTOVA = "ZADACHA_GOTOVA";
 
     private $db;
     public function __construct()
@@ -28,6 +29,52 @@ class PanelModel
         $sql = "SELECT * FROM zametki";
         return $this->db->execute($sql, $params);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function dobavitZametka($serdce){
+        $soderganie = $serdce['zametka_name'];
+
+
+        $sql = "INSERT INTO zametki (user_id, text_zametka)
+VALUES (:user_id, :soderganie)";
+
+
+
+        $params = [
+            'user_id' => '1',
+            'soderganie' => $soderganie
+            ];
+
+
+        return $this->db->execute($sql, $params);
+
+
+
+        /* if($result === false) {
+             return self::ZADACHA_PROBLEMA;
+         }
+         return self::ZADACHA_ADDED;*/
+
+
+
+    }
+
+
+
+
+
+
 
 
 
@@ -72,7 +119,16 @@ VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
         $chto = $id['id'];
         $sql = 'UPDATE Zadachi SET `gotovo`=1 WHERE `id`=:id';
         $params = ['id'=>$chto];
-        return $this->db->execute($sql, $params);
+        $result = $this->db->execute($sql, $params);
+
+        if($result === false) {
+            return self::ZADACHA_PROBLEMA;
+        }
+
+   return self::ZADACHA_GOTOVA;
+
+
+
     }
 
 

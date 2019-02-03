@@ -41,6 +41,14 @@
       "path":"/zadacha/gotovo/{id:\\d+}",
       "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zadachaGotovaAction",
       "method": "GET"
+    },
+
+
+
+    "dobavitZametka":{
+      "path":"/panel/addzametka",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zametkaDobavitAction",
+      "method": "POST"
     }
 
 

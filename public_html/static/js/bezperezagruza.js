@@ -10,9 +10,25 @@
         let ZabiraemSsil = function(event) {
             event.preventDefault();
             let attribute = this.getAttribute("href");
-            let xhr = new XMLHttpRequest();
-            xhr.open("GET", attribute);
-            xhr.send(null);
+            let predok = this.closest(".skroy");
+
+
+            let xhr2 = new XMLHttpRequest();
+            xhr2.open("GET", attribute, true);
+
+            xhr2.send(null);
+
+            xhr2.onload = function (oEvent) {
+                if (xhr2.status == 200) {
+                    console.log(xhr2.responseText);
+                    predok.classList.add('nenado');
+                }
+            };
+
+
+
+
+
 
         };
 

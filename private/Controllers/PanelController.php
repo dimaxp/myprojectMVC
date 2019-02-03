@@ -31,7 +31,12 @@ class PanelController extends Controller
 
     public function zadachaGotovaAction($request) {
         $getData = $request->params();
-        $this->PanelModel->GotovaZadacha($getData);
+        $answer = $this->PanelModel->GotovaZadacha($getData);
+        return parent::generateAjaxResponse($answer);
+
+
+
+
     }
 
     public function zadachaDobavitAction($request) {
@@ -39,6 +44,17 @@ class PanelController extends Controller
       $this->PanelModel->dobavitZadacha($postData);
        // return parent::generateAjaxResponse($answer);
     }
+
+
+
+
+    public function zametkaDobavitAction($request) {
+        $postData = $request->post();
+        $this->PanelModel->dobavitZametka($postData);
+        // return parent::generateAjaxResponse($answer);
+    }
+
+
 
 
 
