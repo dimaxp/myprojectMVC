@@ -1,16 +1,50 @@
-
-
-
 (function () {
     'use strict';
 
 
+    function addClassListener() {
+
+        let classname = document.getElementsByClassName("bezperezagruza");
+        let ZabiraemSsil = function(event) {
+            event.preventDefault();
+            let attribute = this.getAttribute("href");
+            let predok = this.closest(".skroy");
+
+
+            let xhr2 = new XMLHttpRequest();
+            xhr2.open("GET", attribute, true);
+
+            xhr2.send(null);
+
+            xhr2.onload = function (oEvent) {
+                if (xhr2.status == 200) {
+                    console.log(xhr2.responseText);
+                    predok.classList.add('nenado');
+                }
+            };
+
+        };
+
+
+
+        for (let i = 0; i < classname.length; i++) {
+            classname[i].addEventListener('click', ZabiraemSsil);
+        }
+
+
+    }
 
 
 
 
 
-    function sendZadacha(event) {
+
+
+
+
+
+
+function sendZadacha(event) {
         event.preventDefault();
 
 
@@ -69,40 +103,87 @@ let block_left = document.getElementsByClassName('left');
                 let vstavldata = document.createTextNode(today);
                 sozddata.appendChild(vstavldata);
 
-                newDiv.appendChild(sozddata);
+                let sozdtext= document.createElement('div');
 
+                sozdtext.classList.add('zadacha_one');
+                sozdtext.classList.add('col-md-8');
+                sozdtext.classList.add('col-7');
+                let vstavltext= document.createTextNode(text_zadacha);
+                sozdtext.appendChild(vstavltext);
+
+
+
+                let sozdgot = document.createElement('div');
+                sozdgot.classList.add('gotovo');
+                sozdgot.classList.add('col-2');
+                sozdgot.classList.add('text-right');
+                let ashka = document.createElement('a');
+                ashka.classList.add('bezperezagruza');
+                ashka.classList.add('fa');
+                ashka.classList.add('fa-check-circle');
+
+
+                ashka.href = '/zadacha/gotovo/'+xhr.responseText;
+
+                ashka.addEventListener("click", action);
+                function action (event) {
+<!--Дублируем скрипт для скрытия элемента -->
+                    event.preventDefault();
+                    let attribute = this.getAttribute("href");
+                    let predok = this.closest(".skroy");
+
+
+                    let xhr2 = new XMLHttpRequest();
+                    xhr2.open("GET", attribute, true);
+
+                    xhr2.send(null);
+
+                    xhr2.onload = function (oEvent) {
+                        if (xhr2.status == 200) {
+                            console.log(xhr2.responseText);
+                            predok.classList.add('nenado');
+                        }
+                    };
+
+                }
+
+
+
+                sozdgot.appendChild(ashka);
+
+
+
+
+
+                newDiv.appendChild(sozddata);
+                newDiv.appendChild(sozdtext);
+                newDiv.appendChild(sozdgot);
 
 
                 left.appendChild(newDiv);
 
 
-
-
-
-
-
             }
+      };
+ }
 
 
 
 
-        };
-
-
-
-
-
-
-    }
 
 
 
     function addFormListener() {
        let nashaformzadach = document.getElementById('add_zadacha_f');
         nashaformzadach.addEventListener('submit', sendZadacha);
-
     }
 
-    addFormListener();
 
+
+
+
+
+
+    addFormListener();
+    addClassListener();
 }());
