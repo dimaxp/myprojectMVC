@@ -13,7 +13,7 @@
 
         xhr.onload = function (oEvent) {
             if (xhr.status == 200) {
-                console.log(xhr.responseText);
+
 
                 responseHandler(xhr.responseText);
 
@@ -34,6 +34,16 @@
         else if (response === "USER_EXISTS"){
 
         }
+
+        else if (response === "USER_EXISTS"){
+
+        }
+
+
+
+
+
+
 
 
         else {

@@ -41,8 +41,8 @@ class PanelController extends Controller
 
     public function zadachaDobavitAction($request) {
         $postData = $request->post();
-      $this->PanelModel->dobavitZadacha($postData);
-       // return parent::generateAjaxResponse($answer);
+        $answer =  $this->PanelModel->dobavitZadacha($postData);
+      return parent::generateAjaxResponse($answer);
     }
 
 

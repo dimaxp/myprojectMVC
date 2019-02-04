@@ -29,10 +29,10 @@
 
     <div class="row">
         <!--начало левого большого блока-->
-        <div class="left col-lg-5 col-md-8 col-12  offset-lg-1 offset-md-2">
+        <div id="left" class="left col-lg-5 col-md-8 col-12  offset-lg-1 offset-md-2">
 
 
-            <form class="" name="add_zadacha" action="/panel/addzadacha">
+            <form class="" id="add_zadacha_f" name="add_zadacha" action="/panel/addzadacha">
                 <div class="row">
 
                     <div class="col-md-8 col-12 paddnone">

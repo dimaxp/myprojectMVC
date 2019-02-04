@@ -21,6 +21,6 @@ echo $_SESSION['login'];
 
 
 </body>
-<script  src="/static/js/sendForm.js"></script>
+<script  src="/static/js/zadacha.js"></script>
 <script  src="/static/js/bezperezagruza.js"></script>
 </html>

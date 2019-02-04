@@ -96,14 +96,22 @@ VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
             'razdel' => 'hello'];
 
 
-        return $this->db->execute($sql, $params);
+        $result = $this->db->execute($sql, $params);
 
 
 
-       /* if($result === false) {
-            return self::ZADACHA_PROBLEMA;
+
+
+        $lastid = $this->db->connection->lastInsertId();
+
+//var_dump($result);
+
+
+      if($result === false) {
+           return 33;
+
         }
-        return self::ZADACHA_ADDED;*/
+       return $lastid;
 
 
 
