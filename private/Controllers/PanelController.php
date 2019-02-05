@@ -50,8 +50,8 @@ class PanelController extends Controller
 
     public function zametkaDobavitAction($request) {
         $postData = $request->post();
-        $this->PanelModel->dobavitZametka($postData);
-        // return parent::generateAjaxResponse($answer);
+        $answer =  $this->PanelModel->dobavitZametka($postData);
+        return parent::generateAjaxResponse($answer);
     }
 
 

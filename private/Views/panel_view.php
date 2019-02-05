@@ -66,12 +66,12 @@
 
         <!--начало правого большого блока-->
 
-        <div class="right col-lg-4 col-md-8 offset-xl-2 offset-md-2 offset-lg-1">
-            <form name="add_zametka" action="/panel/addzametka">
+        <div id="right" class="right col-lg-4 col-md-8 offset-xl-2 offset-md-2 offset-lg-1">
+            <form name="add_zametka" id="add_zametka" action="/panel/addzametka">
                 <div class="form-group row justify-content-center text-center">
                     <legend>Форма для добавления заметки</legend>
                     <br><br>
-                    <textarea class="col-md-10"  name="zametka_name" id="zametka_name" placeholder="Введите Вашу заметку" minlength="1" maxlength="2000" required></textarea>
+                    <textarea id="editor" class="col-md-12"  name="zametka_name" id="zametka_name" placeholder="Введите Вашу заметку" minlength="1" maxlength="2000" required></textarea>
                 </div>
                 <div class="form-group row justify-content-center">
                     <button class="btn btn-success" type="submit">Добавить заметку</button>
@@ -88,7 +88,7 @@
             <? foreach ($zametki as $key => $zametka  ): ?>
             <div class="row justify-content-center skroy">
                 <div class="col-md-10 block_zapis_zametki">
-                    <div class="delet_zametka text-right"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    <div class="delet_zametka text-right"><a href="/zametka/del/<? echo $zametka['id'] ?>" class="fa fa-times" aria-hidden="true"></a></div>
                     <p><? echo $zametka['text_zametka'] ?></p>
                 </div>
             </div>

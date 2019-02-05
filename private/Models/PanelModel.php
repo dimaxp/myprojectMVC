@@ -57,7 +57,19 @@ VALUES (:user_id, :soderganie)";
             ];
 
 
-        return $this->db->execute($sql, $params);
+        $result = $this->db->execute($sql, $params);
+
+        $lastid = $this->db->connection->lastInsertId();
+
+        if($result === false) {
+            // дописать какую нибудь ощибку если в базе не записалось
+
+        }
+        return $lastid;
+
+
+
+
 
 
 
@@ -108,7 +120,7 @@ VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
 
 
       if($result === false) {
-           return 33;
+      // дописать какую нибудь ощибку если в базе не записалось
 
         }
        return $lastid;
