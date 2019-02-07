@@ -224,6 +224,9 @@ let block_left = document.getElementsByClassName('left');
                 let a_del_zam = document.createElement('a');
                 a_del_zam.classList.add('fa');
                 a_del_zam.classList.add('fa-times');
+                a_del_zam.classList.add('bezperezagruza');
+
+
                 a_del_zam.href = '/zametka/del/'+xhrZam.responseText;
 
 
@@ -308,7 +311,32 @@ let block_left = document.getElementsByClassName('left');
 
 
 
+
+
+
+
+function slider() {
+
+    let slides = document.querySelectorAll('#slides .slide');
+    var currentSlide = 0;
+    var slideInterval = setInterval(nextSlide,2000);
+
+    function nextSlide() {
+        slides[currentSlide].className = 'slide';
+        currentSlide = (currentSlide+1)%slides.length;
+        slides[currentSlide].className = 'slide showing';
+    }
+}
+
+
+
+
+
     addFormListener();
     addClassListener();
     addFormZametakListener();
+    slider();
+
+
+
 }());

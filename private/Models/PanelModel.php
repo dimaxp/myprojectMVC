@@ -18,6 +18,7 @@ class PanelModel
     public function __construct()
     {
         $this->db = new DBConnection();
+
     }
 
     public function getAllZadachi(){
@@ -87,6 +88,24 @@ VALUES (:user_id, :soderganie)";
 
 
 
+    public function dobavitFile($serdce){
+
+        var_dump($serdce['picture']);
+
+        $name = $serdce['picture']['name'];
+        $tmp_name = $serdce['picture']['tmp_name'];
+        move_uploaded_file($tmp_name, "static/motiv/$name");
+
+
+
+    }
+
+
+
+
+
+
+
 
 
 
@@ -150,6 +169,26 @@ VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
 
 
     }
+
+
+
+    public function zametkaDel($id){
+        $chto = $id['id'];
+        $sql = 'DELETE FROM zametki WHERE `id`=:id';
+        $params = ['id'=>$chto];
+        $result = $this->db->execute($sql, $params);
+
+        if($result === false) {
+          return self::ZAMETKA_DEL_NO_OK;
+        }
+
+      return self::ZAMETKA_DEL_OK;
+
+
+
+    }
+
+
 
 
 

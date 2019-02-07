@@ -67,6 +67,29 @@
         <!--начало правого большого блока-->
 
         <div id="right" class="right col-lg-4 col-md-8 offset-xl-2 offset-md-2 offset-lg-1">
+
+            <form enctype="multipart/form-data" action="/load/files" method="post">
+
+                <input name="picture" size="" type="file" accept="image/*"> <br>
+
+                <input type="submit" value="Send">
+            </form>
+
+
+
+            <ul id="slides">
+                <li class="slide showing">Slide 1</li>
+                <li class="slide">Slide 2</li>
+                <li class="slide">Slide 3</li>
+                <li class="slide">Slide 4</li>
+                <li class="slide">Slide 5</li>
+            </ul>
+
+
+
+
+
+
             <form name="add_zametka" id="add_zametka" action="/panel/addzametka">
                 <div class="form-group row justify-content-center text-center">
                     <legend>Форма для добавления заметки</legend>
@@ -88,7 +111,7 @@
             <? foreach ($zametki as $key => $zametka  ): ?>
             <div class="row justify-content-center skroy">
                 <div class="col-md-10 block_zapis_zametki">
-                    <div class="delet_zametka text-right"><a href="/zametka/del/<? echo $zametka['id'] ?>" class="fa fa-times" aria-hidden="true"></a></div>
+                    <div class="delet_zametka text-right"><a href="/zametka/del/<? echo $zametka['id'] ?>" class="fa fa-times bezperezagruza" aria-hidden="true"></a></div>
                     <p><? echo $zametka['text_zametka'] ?></p>
                 </div>
             </div>

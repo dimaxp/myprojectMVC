@@ -44,6 +44,9 @@ class Request
         return $this->cookies;
     }
 
+
+
+
     public function get()
     {
         return $this->get;

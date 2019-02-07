@@ -10,7 +10,8 @@ namespace DIMA\WSPACE\Models;
 
 
 use DIMA\WSPACE\Base\DBConnection;
-use DIMA\WSPACE\Base\Cookies;
+use DIMA\WSPACE\Base\Session;
+
 
 class AccountModel
 {
@@ -23,10 +24,21 @@ class AccountModel
     const MAIL_EXISTS = "MAIL_EXISTS";
 
     private $db;
+    private $session;
+
+
+
     public function __construct()
     {
         $this->db = new DBConnection();
+        $this->session = new Session();
+
+
     }
+
+
+
+
 
     public function loginExists($userData){
         $sql = 'SELECT login FROM user WHERE login =:login';
@@ -48,7 +60,7 @@ class AccountModel
 
 
     public function addUser($userData){
-
+$this->session->start();
         if ($this->loginExists($userData)){
             return self::USER_EXISTS;
         }
@@ -69,15 +81,41 @@ class AccountModel
         ];
 
         $result = $this->db->execute($sql, $params);
+        $lastid = $this->db->connection->lastInsertId();
         if($result === false) {
             return self::DB_ERROR;
         }
-    $_SESSION['login'] = $userData['login'];
+$this->session->setData('login',$userData['login']);
+$this->session->setData('id', $lastid);
+      //  $this->session->setData('cookie',$key);
+
+
+
+
+     /*   $sql = "UPDATE user SET cookie=:cookie WHERE login=:login ";
+        $params = [
+            'login'=> $userData['login'],
+            'cookie'=>$key
+
+        ];
+        $this->db->execute($sql, $params);*/
+
         return self::USER_ADDED;
     }
 
-    public function authUser($userData){
-        $sql = "SELECT login, hash FROM user 
+
+
+
+
+
+
+
+
+public function authUser($userData){
+$this->session->start();
+
+
+        $sql = "SELECT login, hash, id FROM user 
       WHERE login=:login";
         $params = [
             'login'=> $userData['login']
@@ -96,8 +134,27 @@ class AccountModel
             return self::PWD_ERROR;
         }
 
-        setCookie('1','1', 300000);
-    $_SESSION['login'] = $userData['login'];
+
+
+
+$key = rand(145, 1500000000);
+    $this->session->setData('login',$userData['login']);
+    $this->session->setData('id',$result[0]['id']);
+    $this->session->setData('cookie',$key);
+
+
+
+
+$sql = "UPDATE user SET cookie=:cookie WHERE login=:login ";
+$params = [
+            'login'=> $userData['login'],
+    'cookie'=>$key
+
+        ];
+$this->db->execute($sql, $params);
+
+
+
         return self::USER_AUTH;
     }
 

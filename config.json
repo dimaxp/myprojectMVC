@@ -49,7 +49,23 @@
       "path":"/panel/addzametka",
       "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zametkaDobavitAction",
       "method": "POST"
+    },
+
+
+    "delZametka":{
+      "path":"/zametka/del/{id:\\d+}",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zametkaDelAction",
+      "method": "GET"
+    },
+
+    "dobavitFile":{
+      "path":"/load/files",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::fileDobavitAction",
+      "method": "POST"
     }
+
+
+
 
 
 

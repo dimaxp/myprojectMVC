@@ -1,5 +1,9 @@
 <?
-echo $_SESSION['login'];
+var_dump($_SESSION);
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
