@@ -1,9 +1,24 @@
 
 
+
+<? if ($_COOKIE['auth'] == 'true'): ?>
+
+
+    <div class="col-md-3 col-12 text-right">
+        <a href="/panel" class="knopka btn btn-warning">Перейти в панель</a>
+    </div>
+
+
+<? else: ?>
+
+
 <div class="col-md-3 col-12 text-right">
     <a href="#popvhod" class="knopka btn btn-success">Вход</a>
     <a href="#popreg" class="knopka btn btn-warning">Регистрация</a>
 </div>
+
+<? endif; ?>
+
 
 
 </div>

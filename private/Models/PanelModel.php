@@ -27,6 +27,23 @@ class PanelModel
 
     }
 
+
+
+
+    public function getAllMotivators(){
+        $id_user = $this->session->getData('id');
+        $sql = "SELECT * FROM motivator WHERE user_id =:user_id";
+        $params = [
+            'user_id' => $id_user ];
+
+
+        return $this->db->execute($sql, $params);
+    }
+
+
+
+
+
     public function getAllZadachi(){
 
 $id_user = $this->session->getData(id);
@@ -109,12 +126,60 @@ VALUES (:user_id, :soderganie)";
 
 
     public function dobavitFile($serdce){
+$mycatalog = "static/motiv/";
 
-        var_dump($serdce['picture']);
+
 
         $name = $serdce['picture']['name'];
         $tmp_name = $serdce['picture']['tmp_name'];
-        move_uploaded_file($tmp_name, "static/motiv/$name");
+        move_uploaded_file($tmp_name, "static/motiv/".$name);
+
+        if(preg_match('/[.](GIF)|(gif)$/', $name)) {
+            $im = imagecreatefromgif($mycatalog.$name) ; //если оригинал был в формате gif, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+        }
+        if(preg_match('/[.](PNG)|(png)$/', $name)) {
+            $im = imagecreatefrompng($mycatalog.$name) ;//если оригинал был в формате png, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+        }
+
+        if(preg_match('/[.](JPG)|(jpg)|(jpeg)|(JPEG)$/', $name)) {
+            $im = imagecreatefromjpeg($mycatalog.$name); //если оригинал был в формате jpg, то создаем изображение в этом же формате. Необходимо для последующего сжатия
+        }
+
+
+
+        $w = 520;
+        $h = 306;
+        $w_src = imagesx($im); //вычисляем ширину
+        $h_src = imagesy($im); //вычисляем высоту изображения
+        $dest = imagecreatetruecolor($w,$h);
+        imagecopyresampled($dest, $im, 0, 0, 0, 0, $w, $h, $w_src, $h_src);
+        $date=time(); //вычисляем время в настоящий момент.
+        $normput = $mycatalog.$date.".jpg";
+        imagejpeg($dest, $mycatalog.$date.".jpg");
+
+
+        $delfull = $mycatalog.$name;
+        unlink($delfull);
+
+
+
+        $sql = "INSERT INTO motivator (user_id, path)
+VALUES (:user_id, :path)";
+
+        $params = [
+            'user_id' => $this->session->getData('id'),
+            'path' => $normput
+        ];
+
+
+        $result = $this->db->execute($sql, $params);
+        $lastid = $this->db->connection->lastInsertId();
+        $arr = $lastid.':'.$date;
+
+     return $arr;
+
+
+
 
 
 
@@ -187,6 +252,23 @@ VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
 
 
     }
+
+
+
+
+    public function delFile($id){
+        $chto = $id['id'];
+        $sql = 'DELETE FROM motivator WHERE `id`=:id';
+        $params = ['id'=>$chto];
+        $result = $this->db->execute($sql, $params);
+
+    }
+
+
+
+
+
+
 
 
 

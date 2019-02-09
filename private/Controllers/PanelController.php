@@ -2,6 +2,7 @@
 namespace DIMA\WSPACE\Controllers;
 use DIMA\WSPACE\Base\Controller;
 use DIMA\WSPACE\Models\PanelModel;
+use DIMA\WSPACE\Models\AccountModel;
 use DIMA\WSPACE\Base\Session;
 use DIMA\WSPACE\Base\Cookies;
 
@@ -10,6 +11,7 @@ use DIMA\WSPACE\Base\Cookies;
 class PanelController extends Controller
 {
     private $PanelModel;
+    private $AccountModel;
     private $session;
     private $cookie;
 
@@ -18,17 +20,16 @@ class PanelController extends Controller
         $this->PanelModel = new PanelModel();
         $this->session = new Session();
         $this->cookie = new Cookies();
+        $this->AccountModel = new AccountModel();
 
     }
 
 
     public function showPanelAction(){
 //$this->session->start();
-        if (!$this->session->getData('id'))
-{
- header("Location: /");
- exit;
-}
+
+$this->proverkaCookie();
+
 
 
         $view = 'panel_view.php';
@@ -36,10 +37,43 @@ class PanelController extends Controller
 
         $zadachi = $this->PanelModel->getAllZadachi();
         $zametki = $this->PanelModel->getAllZametki();
+        $motivators = $this->PanelModel->getAllMotivators();
 
-        $data = ['zadachi' => $zadachi, 'zametki' => $zametki];
+
+        $data = ['zadachi' => $zadachi, 'zametki' => $zametki, 'motivators' => $motivators];
         return parent::generateResponse($view, $data);
     }
+
+
+    public function proverkaCookie() {
+
+        if (!$this->session->getData('id') && !$this->cookie->setField('key'))
+        {
+            header("Location: /");
+            exit;
+        }
+        elseif (!$this->session->getData('id') && $this->cookie->setField('key')){
+        $answer = $this->AccountModel->proverkaCook();
+     if(!$answer){ header("Location: /"); exit;}
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,8 +87,17 @@ class PanelController extends Controller
 
     public function fileDobavitAction($request) {
         $files = $request->files();
-     $this->PanelModel->dobavitFile($files);
-      //  return parent::generateAjaxResponse($answer);
+        $answer =  $this->PanelModel->dobavitFile($files);
+      return parent::generateAjaxResponse($answer);
+    }
+
+
+
+
+    public function fileDellAction($request) {
+        $getData = $request->params();
+        $answer = $this->PanelModel->delFile($getData);
+        return parent::generateAjaxResponse($answer);
     }
 
 

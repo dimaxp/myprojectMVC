@@ -68,22 +68,43 @@
 
         <div id="right" class="right col-lg-4 col-md-8 offset-xl-2 offset-md-2 offset-lg-1">
 
-            <form enctype="multipart/form-data" action="/load/files" method="post">
 
-                <input name="picture" size="" type="file" accept="image/*"> <br>
+<div id="motivator_right">
 
-                <input type="submit" value="Send">
-            </form>
-
-
+    <span class="text_none_sli">Ваш мотиватор :)</span>
 
             <ul id="slides">
-                <li class="slide showing">Slide 1</li>
+                <? foreach ($motivators as $key => $motivator): ?>
+                    <li class="slide showing">
+                        <a class="udalitodinmotiv" href="/load/del/<? echo $motivator['id']?>">
+                            <span class="fa fa-times-circle"></span>
+                        </a>
+                        <img src="<? echo $motivator['path']?>" />
+                    </li>
+                <? endforeach ?>
+               <!-- <li class="slide showing">Slide 1</li>
                 <li class="slide">Slide 2</li>
                 <li class="slide">Slide 3</li>
                 <li class="slide">Slide 4</li>
-                <li class="slide">Slide 5</li>
+                <li class="slide">Slide 5</li>-->
             </ul>
+
+
+
+            <a href="#" id="motivatorModalzagruzka" data-toggle="modal" data-target="#Formazag" class="text-center">Загрузить изображение</a>
+
+
+</div>
+
+            <div class="clear"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -146,4 +167,47 @@
 
     </div>
 
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Модальное окно -->
+<div class="modal" id="Formazag" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Загрузить файл</h5>
+                <button id="zak" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+                <div id="gotovfile" class="nona">
+
+                    Ваше изображение добавлено!
+
+                </div>
+
+
+              <form id="tasamfile" enctype="multipart/form-data" action="/load/files" method="post">
+
+                <input  id="picapica" name="picture" size="" type="file" accept="image/*"> <br>
+
+                <input type="submit" value="Send">
+            </form>
+
+
+
+            </div>
+
+        </div>
+    </div>
 </div>

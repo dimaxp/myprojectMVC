@@ -68,6 +68,11 @@
       "path":"/load/files",
       "controller":"DIMA\\WSPACE\\Controllers\\PanelController::fileDobavitAction",
       "method": "POST"
+    },
+    "dellFile":{
+      "path":"/load/del/{id:\\d+}",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::fileDellAction",
+      "method": "GET"
     }
 
 

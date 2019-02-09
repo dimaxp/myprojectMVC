@@ -1,11 +1,3 @@
-<?
-var_dump($_SESSION);
-var_dump($_COOKIE);
-
-
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +14,7 @@ var_dump($_COOKIE);
 
 
 
-    <script src="js/bootstrap.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 
     <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
@@ -42,7 +34,17 @@ var_dump($_COOKIE);
 
 
 <script  src="/static/js/zadacha.js"></script>
+<script  src="/static/js/motivator.js"></script>
 <script  src="/static/js/bezperezagruza.js"></script>
 <script  src="/static/js/skeditors.js"></script>
+
+
+<!--<script>
+
+
+    $('#motivatorModalzagruzka').on('shown.bs.modal', function () {
+        $('#Formazag').trigger('focus')
+    });
+</script>-->
 
 </html>

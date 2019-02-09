@@ -5,6 +5,7 @@ RewriteCond %{REQUEST_FILENAME}% !-d
 RewriteCond %{REQUEST_URI}% !^/static/images/
 RewriteCond %{REQUEST_URI}% !^/static/css/
 RewriteCond %{REQUEST_URI}% !^/static/js/
+RewriteCond %{REQUEST_URI}% !^/static/motiv/
 
 RewriteRule ^(.*)$ index.php [L,QSA]
   # L остановить процесс преобразования на этой строчке

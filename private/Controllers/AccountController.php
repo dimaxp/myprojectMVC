@@ -46,6 +46,16 @@ class AccountController extends Controller
 
 public function accLogoutAction() {
     $answer = $this->accountModel->Logout();
+
+    if ($answer)
+    {
+        header("Location: /");
+        exit;
+    }
+
+
+
+
     $view = 'account_logout.php';
     $title =  "Выход";
     $data = [

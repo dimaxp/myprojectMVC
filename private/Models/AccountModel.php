@@ -150,6 +150,7 @@ $key = rand(145, 1500000000);
     $this->session->setData('cookie',$key);
     $this->cookies->setCookie('login', $userData['login']);
     $this->cookies->setCookie('key', $key);
+    $this->cookies->setCookie('auth', 'true');
 
 
 
@@ -173,8 +174,47 @@ $this->db->execute($sql, $params);
     public function Logout(){
      //   $this->session->start();
         $this->session->close();
+        $this->cookies->delCookie('login');
+        $this->cookies->delCookie('key');
+        $this->cookies->setCookie('auth', 'false');
+        return true;
+
+
 
     }
+
+
+
+
+    public function proverkaCook() {
+
+        $keyincook = $this->cookies->setField('key');
+        $loginincook = $this->cookies->setField('login');
+        $sql = "SELECT login, id FROM user WHERE login=:login AND cookie=:cookie";
+        $params = [
+            'login'=> $loginincook,
+            'cookie'=>$keyincook
+        ];
+        $result = $this->db->execute($sql, $params);
+        if(!$result){
+            return false;
+        }
+
+
+
+
+        $this->session->setData('login',$result[0]['login']);
+        $this->session->setData('id',$result[0]['id']);
+        $this->cookies->setCookie('auth', 'true');
+        return true;
+
+
+
+
+    }
+
+
+
 
 
 
