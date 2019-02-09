@@ -1,7 +1,8 @@
 <?php
+
 //session_start();
 require __DIR__ . '/../vendor/autoload.php';
-
+\DIMA\WSPACE\Base\Session::start();
 
 $request = new DIMA\WSPACE\Base\Request(); // получаем запрос
 

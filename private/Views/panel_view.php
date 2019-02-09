@@ -4,7 +4,7 @@
 
         <nav class="col-md-10 col-sm-12 text-right">
             <ul class="vnmenu">
-                <li><a class="btn btn-success" href="about.html">Выход</a></li>
+                <li><a class="btn btn-success" href="/account/logout">Выход</a></li>
                 <li><a class="btn btn-secondary" href="index.html">Настройки</a></li>
             </ul>
         </nav>

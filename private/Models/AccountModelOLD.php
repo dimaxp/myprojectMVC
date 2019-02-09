@@ -118,7 +118,7 @@ $this->session->setData('login',$userData['login']);
 
 
 public function authUser($userData){
-
+setcookie('dd2','dd3');
 //$this->session->start();
 
 

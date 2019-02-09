@@ -3,6 +3,8 @@
 namespace DIMA\WSPACE\Models;
 
 use DIMA\WSPACE\Base\DBConnection;
+use DIMA\WSPACE\Base\Session;
+use DIMA\WSPACE\Base\Cookies;
 
 
 
@@ -15,19 +17,35 @@ class PanelModel
     const ZADACHA_GOTOVA = "ZADACHA_GOTOVA";
 
     private $db;
+    private $session;
+    private $cookies;
     public function __construct()
     {
         $this->db = new DBConnection();
+        $this->session = new Session();
+        $this->cookies = new Cookies();
 
     }
 
     public function getAllZadachi(){
-        $sql = "SELECT * FROM Zadachi WHERE gotovo = 0";
+
+$id_user = $this->session->getData(id);
+
+        $sql = "SELECT * FROM Zadachi WHERE gotovo = 0 AND user_id =:user_id";
+        $params = [
+            'user_id' => $id_user ];
+
+
         return $this->db->execute($sql, $params);
     }
 
     public function getAllZametki(){
-        $sql = "SELECT * FROM zametki";
+      //  $this->session->start();
+    $id_user = $this->session->getData(id);
+      //  $sql = "SELECT * FROM zametki";
+       $sql = "SELECT * FROM zametki WHERE user_id =:user_id";
+        $params = [
+            'user_id' => $id_user ];
         return $this->db->execute($sql, $params);
     }
 
@@ -44,6 +62,8 @@ class PanelModel
 
 
     public function dobavitZametka($serdce){
+      //  $this->session->start();
+        $id_usera = $this->session->getData(id);
         $soderganie = $serdce['zametka_name'];
 
 
@@ -53,7 +73,7 @@ VALUES (:user_id, :soderganie)";
 
 
         $params = [
-            'user_id' => '1',
+            'user_id' => $id_usera,
             'soderganie' => $soderganie
             ];
 
@@ -110,17 +130,19 @@ VALUES (:user_id, :soderganie)";
 
 
 
-    public function dobavitZadacha($serdce){
-   $soderganie = $serdce['zadacha'];
+public function dobavitZadacha($serdce){
+//$this->session->start();
+$id_usera = $this->session->getData(id);
+$soderganie = $serdce['zadacha'];
 
 
-        $sql = "INSERT INTO zadachi (user_id, zadacha, gotovo, data_z, razdel)
+$sql = "INSERT INTO zadachi (user_id, zadacha, gotovo, data_z, razdel)
 VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
 
 
 
         $params = [
-            'user_id' => '1',
+            'user_id' => $id_usera,
             'soderganie' => $soderganie,
             'gotovo' => '0',
             'data_z' => 'hello',
@@ -128,10 +150,6 @@ VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
 
 
         $result = $this->db->execute($sql, $params);
-
-
-
-
 
         $lastid = $this->db->connection->lastInsertId();
 

@@ -37,6 +37,12 @@
       "method": "POST"
     },
 
+    "acc_logout":{
+      "path":"/account/logout",
+      "controller":"DIMA\\WSPACE\\Controllers\\AccountController::accLogoutAction",
+      "method": "GET"
+    },
+
     "gotovoZadacha":{
       "path":"/zadacha/gotovo/{id:\\d+}",
       "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zadachaGotovaAction",

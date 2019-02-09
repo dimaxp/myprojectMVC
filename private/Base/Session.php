@@ -8,7 +8,7 @@ class Session
     {$this->session = $_SESSION;
 
     }
-    public function start(){session_start();}
+    public static function start(){session_start();}
 
 
 

@@ -12,12 +12,14 @@ namespace DIMA\WSPACE\Controllers;
 use DIMA\WSPACE\Base\Controller;
 use DIMA\WSPACE\Models\AccountModel;
 
+
 class AccountController extends Controller
 {
     private $accountModel;
     public function __construct()
     {
      $this->accountModel = new AccountModel();
+
     }
 
     public function accountAction(){
@@ -38,8 +40,23 @@ class AccountController extends Controller
     public function authAction($request){
         $postData = $request->post(); // массив $_POST
         $answer = $this->accountModel->authUser($postData);
-
         return parent::generateAjaxResponse($answer);
     }
+
+
+public function accLogoutAction() {
+    $answer = $this->accountModel->Logout();
+    $view = 'account_logout.php';
+    $title =  "Выход";
+    $data = [
+        'title' => $title
+    ];
+    return parent::generateResponse($view, $data);
+
+}
+
+
+
+
 
 }

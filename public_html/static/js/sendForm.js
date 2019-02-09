@@ -35,8 +35,8 @@
 
         }
 
-        else if (response === "USER_EXISTS"){
-
+        else if (response === "DB_ERROR"){
+            console.log("ошибка при добавлении в базу");
         }
 
 

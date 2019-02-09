@@ -3,6 +3,7 @@ namespace DIMA\WSPACE\Controllers;
 use DIMA\WSPACE\Base\Controller;
 use DIMA\WSPACE\Models\PanelModel;
 use DIMA\WSPACE\Base\Session;
+use DIMA\WSPACE\Base\Cookies;
 
 
 
@@ -10,17 +11,19 @@ class PanelController extends Controller
 {
     private $PanelModel;
     private $session;
+    private $cookie;
 
     public function __construct()
     {
         $this->PanelModel = new PanelModel();
         $this->session = new Session();
+        $this->cookie = new Cookies();
 
     }
 
 
     public function showPanelAction(){
-$this->session->start();
+//$this->session->start();
         if (!$this->session->getData('id'))
 {
  header("Location: /");

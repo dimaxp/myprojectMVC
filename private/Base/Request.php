@@ -11,7 +11,7 @@ namespace DIMA\WSPACE\Base;
 
 class Request
 {
-    protected $cookies;
+ //protected $cookies;
     protected $get;
     protected $post;
     protected $files;
@@ -20,7 +20,7 @@ class Request
 
     public function __construct()
     {
-        $this->cookies = $_COOKIE;
+  //$this->cookies = $_COOKIE;
         $this->get = $_GET;
         $this->post = $_POST;
         $this->files = $_FILES;
@@ -39,11 +39,11 @@ class Request
         return $this->server()['REQUEST_METHOD'];
     }
 
-    public function cookies()
+  /*  public function cookies()
     {
         return $this->cookies;
     }
-
+*/
 
 
 

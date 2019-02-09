@@ -3,9 +3,9 @@ namespace DIMA\WSPACE\Base;
 
 class Cookies
 {
-    public function setCookie($name, $value, $time = "300000"){
+    public function setCookie($name, $value){
         // добавить возможность установки значений по умолчанию
-        setcookie($name, $value, $time);
+        setcookie($name, $value, time()+60*60*24*30, '/');
     }
 
     public function delCookie(){
