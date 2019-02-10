@@ -51,6 +51,9 @@ function sendZadacha(event) {
 
         let text_zadacha = document.getElementById('zadacha').value;
 
+        if (text_zadacha == '') {
+            return;
+        }
 
 
         let form_data = new FormData(this);

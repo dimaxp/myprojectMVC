@@ -67,14 +67,19 @@
     <form name="login" action="/account/auth">
         <div>
             <label for="login">
-                <input id="login" name="login" autofocus required placeholder="Введите Ваш логин" type="text"></label>
+                <input minlength="3" id="login" name="login" autofocus required placeholder="Введите Ваш логин" type="text"></label>
         </div>
+        <br>
+        <div id="error_login_netu" class="alert alert-warning nona">У нас нет такого пользователя!</div>
         <br>
         <div>
             <label for="passw">
-                <input id="passw" name="pwd" required placeholder="Введите Ваш пароль" type="password"></label>
+                <input minlength="3" id="passw" name="pwd" required placeholder="Введите Ваш пароль" type="password"></label>
         </div>
         <br>
+<div id="error_auth_pass" class="alert alert-warning nona">Вы ввели неверный пароль!</div>
+        <br>
+
         <button class="btn btn-success" type="submit">Войти</button>
     </form>
 </div>
@@ -88,18 +93,24 @@
     <form name="register" action="/account/registration">
         <div>
             <label for="login_reg">
-                <input id="login_reg" name="login"  required placeholder="Введите Ваш логин" type="text"></label>
+                <input minlength="3" id="login_reg" name="login"  required placeholder="Введите Ваш логин" type="text"></label>
         </div>
+
+        <br>
+        <div id="error_register_login_allready" class="alert alert-warning nona">Такой пользователь уже зарегистрирован!</div>
+
         <br>
         <div>
             <label for="mail_reg">
-                <input id="mail_reg" name="email"  required placeholder="Введите Вашу почту" type="email" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"></label>
+                <input minlength="3" id="mail_reg" name="email"  required placeholder="Введите Вашу почту" type="email" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"></label>
         </div>
+        <br>
+        <div  id="error_register_mail_allready" class="alert alert-warning nona">Такая почта у нас уже есть!</div>
 
         <br>
         <div>
             <label for="passw_reg">
-                <input id="passw_reg" name="pwd" required placeholder="Введите Ваш пароль" type="password"></label>
+                <input minlength="3" id="passw_reg" name="pwd" required placeholder="Введите Ваш пароль" type="password"></label>
         </div>
 
       <!--  <br>

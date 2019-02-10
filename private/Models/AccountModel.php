@@ -23,6 +23,12 @@ class AccountModel
     const USER_AUTH = "USER_AUTH";
     const DB_ERROR = "DB_ERROR";
     const MAIL_EXISTS = "MAIL_EXISTS";
+    const MAIL_CHANGE = "MAIL_CHANGE";
+    const MAIL_PROBLEMA = "MAIL_PROBLEMA";
+    const PWD_NE_RAVEN = "PWD_NE_RAVEN";
+    const PASS_NE_POMENYAL = "PASS_NE_POMENYAL";
+    const PASS_SMENIL = "PASS_SMENIL";
+    const OLDPWD_i_NEWPWD_ERROR = "OLDPWD_i_NEWPWD_ERROR";
 
     private $db;
     private $session;
@@ -59,6 +65,109 @@ class AccountModel
         $answer = $this->db->execute($sql, $params, false);
         return $answer;
     }
+
+
+
+    public function getUserSettings(){
+        $id_usera = $this->session->getData('id');
+        $sql = "SELECT email FROM user WHERE id=:id";
+        $params = [
+            'id'=> $id_usera];
+        $result = $this->db->execute($sql, $params, $all=false);
+
+        return $result;
+
+    }
+
+
+
+
+
+
+    public function changeUserPass($postData)
+    {
+
+
+
+       $oldpass = $postData['oldpass'];
+        $newpass1 = $postData['newpass1'];
+        $newpass2 = $postData['newpass2'];
+
+
+
+
+
+
+
+        if($newpass1 != $newpass2)
+        {
+            return self::PWD_NE_RAVEN;
+        }
+
+
+
+
+       $id_usera = $this->session->getData('id');
+
+        $sql = "SELECT hash FROM user 
+      WHERE id=:id";
+        $params = [
+            'id'=> $id_usera
+        ];
+        $result = $this->db->execute($sql, $params, $all=false);
+
+
+
+        if (!password_verify($oldpass, $result['hash'])){
+            return self::OLDPWD_i_NEWPWD_ERROR;
+        }
+
+        $sql = "UPDATE user SET hash=:hash WHERE id=:id ";
+        $params = [
+            'id'=> $id_usera,
+            'hash'=>password_hash($newpass1, PASSWORD_DEFAULT),
+        ];
+        $result = $this->db->execute($sql, $params);
+
+        if($result === false) {
+            return self::PASS_NE_POMENYAL;
+        }
+
+        return self::PASS_SMENIL;
+
+
+    }
+
+
+
+
+    public function changeUserMail($postData)
+    {
+        $mail = $postData['mail'];
+
+
+        $id_usera = $this->session->getData(id);
+        $sql = "UPDATE user SET email=:mail WHERE id=:id ";
+        $params = [
+            'id'=> $id_usera,
+            'mail'=>$mail
+
+        ];
+        $result = $this->db->execute($sql, $params);
+
+
+
+
+       if($result === false) {
+            return self::MAIL_PROBLEMA;
+        }
+
+        return self::MAIL_CHANGE;
+
+    }
+
+
+
 
 
 

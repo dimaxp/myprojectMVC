@@ -1,14 +1,4 @@
-<div class="container-fluid">
-    <div class="row verhpage">
-        <div class="col-md-2 col-sm-12"><img class="rounded mx-auto d-block" alt="logo" src="images/logo.png"></div>
 
-        <nav class="col-md-10 col-sm-12 text-right">
-            <ul class="vnmenu">
-                <li><a class="btn btn-success" href="/account/logout">Выход</a></li>
-                <li><a class="btn btn-secondary" href="index.html">Настройки</a></li>
-            </ul>
-        </nav>
-    </div>
 
 
 
@@ -31,7 +21,6 @@
         <!--начало левого большого блока-->
         <div id="left" class="left col-lg-5 col-md-8 col-12  offset-lg-1 offset-md-2">
 
-
             <form class="" id="add_zadacha_f" name="add_zadacha" action="/panel/addzadacha">
                 <div class="row">
 
@@ -50,7 +39,7 @@
 
             <? foreach ($zadachi as $key => $zadacha  ): ?>
                 <div class="row zadacha skroy">
-                    <div class="data col-md-2 col-3">31.07.2018</div>
+                    <div class="data col-md-2 col-3"><? echo $zadacha['new_date'] ?></div>
                     <div class="zadacha_one  col-md-8 col-7"> <? echo $zadacha['zadacha'] ?></div>
                     <div class="gotovo col-2 text-right"><a href="/zadacha/gotovo/<? echo $zadacha['id'] ?>" class="bezperezagruza fa fa-check-circle" aria-hidden="true"></a></div>
                 </div>
@@ -91,7 +80,7 @@
 
 
 
-            <a href="#" id="motivatorModalzagruzka" data-toggle="modal" data-target="#Formazag" class="text-center">Загрузить изображение</a>
+            <a href="#" id="motivatorModalzagruzka" data-toggle="modal" data-target="#Formazag" class="text-center btn btn-warning">Загрузить изображение</a>
 
 
 </div>
@@ -187,7 +176,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center">
 
 
                 <div id="gotovfile" class="nona">
@@ -195,17 +184,20 @@
                     Ваше изображение добавлено!
 
                 </div>
-
+                <br> <br>
 
               <form id="tasamfile" enctype="multipart/form-data" action="/load/files" method="post">
 
                 <input  id="picapica" name="picture" size="" type="file" accept="image/*"> <br>
 
-                <input type="submit" value="Send">
+                  <br>
+                  <br>
+
+                <input class="btn btn-success" type="submit" value="Загрузить мотиватор">
             </form>
 
 
-
+                <br><br>
             </div>
 
         </div>

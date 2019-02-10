@@ -25,6 +25,19 @@
 
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row verhpage">
+        <div class="col-md-2 col-sm-12">
+            <a class="btn btn-success diplomlogo" href="/panel">Дипломная работа</a>
+        </div>
+
+        <nav class="col-md-10 col-sm-12 text-right">
+            <ul class="vnmenu">
+                <li><a class="btn btn-success" href="/account/logout">Выход</a></li>
+                <li><a class="btn btn-secondary" href="/settings">Настройки</a></li>
+            </ul>
+        </nav>
+    </div>
 <div><?php include_once $view; ?></div>
 
 

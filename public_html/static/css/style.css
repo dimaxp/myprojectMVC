@@ -23,6 +23,29 @@ button:hover {background: #599855;}
 .popvhod:target {display: block;}
 .popreg {display: none; position: fixed; top:30px;  background: #fff; border: 1px solid #000; padding: 20px;}
 .popreg:target {display: block;}
+
+.diplomlogo {    margin-top: 10px;}
+.di {margin-top: 30px; margin-left: -14px;}
+
+a.fa-check-circle:hover { text-decoration: none; color:#137034;}
+.udalitodinmotiv span { font-size: 22px;
+    margin-right: 8px; opacity: 0}
+
+.udalitodinmotiv span:hover {color:#137034; }
+
+#motivatorModalzagruzka {position: absolute;
+    margin-top: -60px;
+    left: 50%;
+    margin-left: -110px;
+    z-index: 999; display: none}
+
+#right:hover #motivatorModalzagruzka  { display: table}
+#slides:hover .udalitodinmotiv span { opacity: 1}
+
+.btn-success:not(:disabled):not(.disabled):active:focus {    background-color: #1e7e34;}
+
+
+
 .close {float: right; font-size: 22px;}
 .close:hover {color:#000;}
 .knopka {margin-top: 30px;}
@@ -98,6 +121,26 @@ ul.vnmenu li {float:right; margin-left: 20px;}
     position: absolute;
     right: 0;
 }
+
+.setting_form input {
+    width: 300px;
+}
+
+
+
+
+
+/* насторойки */
+
+.settingsbody {
+    background: #fff;
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid #1fa950;
+    padding: 30px;
+    margin: 0 auto;
+}
+
 
 
 

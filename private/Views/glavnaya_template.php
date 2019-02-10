@@ -1,6 +1,3 @@
-<? var_dump($_SESSION);
-var_dump($_COOKIE);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,22 +17,17 @@ var_dump($_COOKIE);
 <div class="container">
 
     <div class="row verhindex">
-        <div class="col-md-2 col-12 shapka shapkin">
-            <img class="logo" src="images/logo.png"> </div>
+        <div class="col-md-2 col-12 shapka shapkin offset-md-1">
+            <a class="btn btn-success di" href="/">Дипломная работа</a>
+        </div>
 
-        <nav class="col-md-6 col-12">
+        <nav class="col-md-4 col-12">
             <ul class="menu">
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="about.html">О проекте</a></li>
+
                 <li><a href="page.html">Пример</a></li>
-                <li><a href="page.html">ТЕСТ1</a></li>
-                <li><a href="page.html">Выпадающее меню</a>
-                    <ul>
-                        <li><a href="#">Выпадающее 1</a></li>
-                        <li><a href="#">Выпадающее 2</a></li>
-                        <li><a href="#">Выпадающее 3</a></li>
-                    </ul>
-                </li>
+
             </ul>
         </nav>
 

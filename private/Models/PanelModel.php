@@ -48,7 +48,7 @@ class PanelModel
 
 $id_user = $this->session->getData(id);
 
-        $sql = "SELECT * FROM Zadachi WHERE gotovo = 0 AND user_id =:user_id";
+        $sql = "SELECT *, DATE_FORMAT(data_z, '%d.%m.%Y') as new_date FROM Zadachi WHERE gotovo = 0 AND user_id =:user_id";
         $params = [
             'user_id' => $id_user ];
 
@@ -210,7 +210,7 @@ VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
             'user_id' => $id_usera,
             'soderganie' => $soderganie,
             'gotovo' => '0',
-            'data_z' => 'hello',
+            'data_z' => date('Y-m-d'),
             'razdel' => 'hello'];
 
 

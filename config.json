@@ -12,19 +12,7 @@
       "method": "GET"
     },
 
-    "panel":{
-      "path":"/panel",
-      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::showPanelAction",
-      "method": "GET"
-    },
 
-
-
-    "add_cell":{
-      "path":"/panel/addzadacha",
-      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zadachaDobavitAction",
-      "method": "POST"
-    },
     "registration":{
       "path":"/account/registration",
       "controller":"DIMA\\WSPACE\\Controllers\\AccountController::registrationAction",
@@ -43,10 +31,42 @@
       "method": "GET"
     },
 
+    "settingsShow":{
+      "path":"/settings",
+      "controller":"DIMA\\WSPACE\\Controllers\\SettingsController::showSettingsAction",
+      "method": "GET"
+    },
+
+    "settingsMailchange":{
+      "path":"/settings/savemail",
+      "controller":"DIMA\\WSPACE\\Controllers\\SettingsController::ChangeMailAction",
+      "method": "POST"
+    },
+
+    "settingsPasschange":{
+      "path":"/settings/changepass",
+      "controller":"DIMA\\WSPACE\\Controllers\\SettingsController::ChangePassAction",
+      "method": "POST"
+    },
+
+
+
     "gotovoZadacha":{
       "path":"/zadacha/gotovo/{id:\\d+}",
       "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zadachaGotovaAction",
       "method": "GET"
+    },
+
+    "panel":{
+      "path":"/panel",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::showPanelAction",
+      "method": "GET"
+    },
+
+    "add_cell":{
+      "path":"/panel/addzadacha",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::zadachaDobavitAction",
+      "method": "POST"
     },
 
 
