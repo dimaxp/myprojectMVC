@@ -60,7 +60,8 @@ a.fa-check-circle:hover { text-decoration: none; color:#137034;}
 .block_zapis_zametki {background: #FFF;padding: 0 20px 20px 20px;border: 1px solid #ECE8E8;border-radius: 5px; margin-top:1.5em;}
 .verhpage {height: 100px; margin-top: 2em;}
 .data {color:#ad9c9c}
-.delet_zametka i {cursor: pointer;margin-top: 15px;color: #599855;}
+.delet_zametka {margin-top: 10px;}
+.delet_zametka i {cursor: pointer;margin-top: 15px;color: #599855; }
 legend {color:#599855;}
 ul.vnmenu {margin-top: 20px;}
 ul.vnmenu li {float:right; margin-left: 20px;}
@@ -81,26 +82,10 @@ ul.vnmenu li {float:right; margin-left: 20px;}
 .popvhod {margin-left: -200px; left:50%; }
 .popreg {margin-left: -200px; left:50%;}
 
+
+
 }
 
-@media screen and (max-width:768px) {
-    .razdeli {
-        display: none;
-    }
-
-    .verhpage {height: 150px;}
-
-    .gozadacha {margin-top: 20px;}
-
-.container-fluid {padding-right: 25px; padding-left: 25px;}
-
-.right {margin-top: 40px;}
-
-    #zadacha {margin-top: 40px;}
-    .divknop {text-align: center;}
-
-    .shapkin {text-align: center;}
-}
 
 .nenado { display: none;}
 
@@ -127,7 +112,9 @@ ul.vnmenu li {float:right; margin-left: 20px;}
 }
 
 
-
+.samap {
+    margin-top: 70px;
+}
 
 
 /* насторойки */
@@ -142,7 +129,16 @@ ul.vnmenu li {float:right; margin-left: 20px;}
 }
 
 
+#add_zametka { margin-top: 30px;}
 
+.block_zametki {margin-top: 30px;}
+
+
+#zakrit_zametka_button {padding: 10px;
+    margin-left: 20px; margin-bottom: 20px}
+
+#new_zametka_button {padding: 10px;
+    margin-left: 6px; margin-bottom: 20px}
 
 
 /* Слайдер */
@@ -184,4 +180,31 @@ ul.vnmenu li {float:right; margin-left: 20px;}
 
 
 
+@media screen and (max-width:768px) {
+
+
+    .setting_form input { width: 100%}
+    #motivator_right {display: none}
+.data { display: none}
+    .samap { margin-top: 0px!important;}
+    .mobillogo { text-align: center}
+
+
+    .razdeli {
+        display: none;
+    }
+
+    .verhpage {height: 150px;}
+
+    .gozadacha {margin-top: 20px;}
+
+    .container-fluid {padding-right: 25px; padding-left: 25px;}
+
+    .right {margin-top: 40px;}
+
+    #zadacha {margin-top: 40px;}
+    .divknop {text-align: center;}
+
+    .shapkin {text-align: center;}
+}
 

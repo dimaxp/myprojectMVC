@@ -3,7 +3,7 @@
 
 
 
-    <div class="row razdeli">
+    <div class="row razdeli ">
 
         <div class="col-10">
             <div class="row">
@@ -39,8 +39,8 @@
 
             <? foreach ($zadachi as $key => $zadacha  ): ?>
                 <div class="row zadacha skroy">
-                    <div class="data col-md-2 col-3"><? echo $zadacha['new_date'] ?></div>
-                    <div class="zadacha_one  col-md-8 col-7"> <? echo $zadacha['zadacha'] ?></div>
+                    <div class="data col-md-2 hidden-xs"><? echo $zadacha['new_date'] ?></div>
+                    <div class="zadacha_one  col-md-8 col-10"> <? echo $zadacha['zadacha'] ?></div>
                     <div class="gotovo col-2 text-right"><a href="/zadacha/gotovo/<? echo $zadacha['id'] ?>" class="bezperezagruza fa fa-check-circle" aria-hidden="true"></a></div>
                 </div>
             <? endforeach ?>
@@ -96,11 +96,22 @@
 
 
 
+<div class="block_zametki">
+
+            <div class="btn btn-success" id="new_zametka_button">
+              <i class="fa fa-sticky-note" aria-hidden="true"></i> Новая заметка
+            </div>
+
+
+    <div class="btn btn-warning nona" id="zakrit_zametka_button">
+        <i class="far fa-times-circle"></i> Закрыть
+    </div>
 
 
 
 
-            <form name="add_zametka" id="add_zametka" action="/panel/addzametka">
+
+            <form name="add_zametka" id="add_zametka" class="nona" action="/panel/addzametka">
                 <div class="form-group row justify-content-center text-center">
                     <legend>Форма для добавления заметки</legend>
                     <br><br>
@@ -120,14 +131,14 @@
 
             <? foreach ($zametki as $key => $zametka  ): ?>
             <div class="row justify-content-center skroy">
-                <div class="col-md-10 block_zapis_zametki">
+                <div class="col-md-11 block_zapis_zametki">
                     <div class="delet_zametka text-right"><a href="/zametka/del/<? echo $zametka['id'] ?>" class="fa fa-times bezperezagruza" aria-hidden="true"></a></div>
                     <p><? echo $zametka['text_zametka'] ?></p>
                 </div>
             </div>
             <? endforeach ?>
 
-
+</div>  <!--конец блока с заметками-->
 
 
 

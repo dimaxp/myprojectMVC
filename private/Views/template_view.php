@@ -27,7 +27,7 @@
 <body>
 <div class="container-fluid">
     <div class="row verhpage">
-        <div class="col-md-2 col-sm-12">
+        <div class="col-md-2 col-sm-12 mobillogo">
             <a class="btn btn-success diplomlogo" href="/panel">Дипломная работа</a>
         </div>
 
@@ -38,7 +38,7 @@
             </ul>
         </nav>
     </div>
-<div><?php include_once $view; ?></div>
+<div class="samap"><?php include_once $view; ?></div>
 
 
 </body>
@@ -50,6 +50,7 @@
 <script  src="/static/js/motivator.js"></script>
 <script  src="/static/js/bezperezagruza.js"></script>
 <script  src="/static/js/skeditors.js"></script>
+<script  src="/static/js/drugieeffecti.js"></script>
 
 
 <!--<script>
