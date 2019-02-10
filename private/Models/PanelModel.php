@@ -44,6 +44,48 @@ class PanelModel
 
 
 
+    public function getAllTetrad(){
+        $id_user = $this->session->getData('id');
+        $sql = "SELECT * FROM tetrad WHERE user_id =:user_id";
+        $params = [
+            'user_id' => $id_user ];
+
+
+        return $this->db->execute($sql, $params);
+    }
+
+
+
+
+
+
+
+
+
+    public function getOneTetrad($id){
+        $chto = $id['id'];
+
+
+
+        $sql = "SELECT * FROM tetrad_desc WHERE terad_id =:terad_id";
+        $params = [
+            'terad_id' => $chto ];
+
+
+        return $this->db->execute($sql, $params);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public function getAllZadachi(){
 
 $id_user = $this->session->getData(id);
@@ -79,7 +121,6 @@ $id_user = $this->session->getData(id);
 
 
     public function dobavitZametka($serdce){
-      //  $this->session->start();
         $id_usera = $this->session->getData(id);
         $soderganie = $serdce['zametka_name'];
 
@@ -287,6 +328,39 @@ VALUES (:user_id, :soderganie, :gotovo, :data_z, :razdel)";
 
 
     }
+
+
+
+
+
+
+
+
+    public function tetradAdd($serdce){
+        $id_usera = $this->session->getData(id);
+        $title = $serdce['name_tetrad'];
+
+        $sql = "INSERT INTO tetrad (user_id, title)
+VALUES (:user_id, :title)";
+
+
+        $params = [
+            'user_id' => $id_usera,
+            'title' => $title
+        ];
+
+
+        $result = $this->db->execute($sql, $params);
+
+        $lastid = $this->db->connection->lastInsertId();
+
+        return $lastid;
+
+    }
+
+
+
+
 
 
 

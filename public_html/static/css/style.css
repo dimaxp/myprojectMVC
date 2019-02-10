@@ -178,6 +178,32 @@ ul.vnmenu li {float:right; margin-left: 20px;}
 
 .slide img { width: 100%;}
 
+#otkritinputtetrad { padding: 10px;}
+
+
+.block_tetradi {margin-top: 30px; margin-bottom: 30px;}
+
+.intetrad { margin-top: 30px;}
+
+#tetrad {
+    width: 100%;
+
+}
+
+.tetrads {padding: 20px 0 20px 0;
+    overflow: hidden;}
+
+.tetrad_one {
+    padding: 20px 20px 20px 20px;
+    font-weight: bold;
+    float: left;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    border-radius: 5px;
+    background: #fff;
+    color: #000;
+}
+
 
 
 @media screen and (max-width:768px) {

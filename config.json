@@ -84,6 +84,26 @@
       "method": "GET"
     },
 
+
+
+
+
+
+    "addTetrad":{
+      "path":"/tetrad/add",
+      "controller":"DIMA\\WSPACE\\Controllers\\PanelController::tetradAddAction",
+      "method": "POST"
+    },
+
+    "tetradView":{
+      "path":"/tetrad/view/{id:\\d+}",
+      "controller":"DIMA\\WSPACE\\Controllers\\TetradController::viewTetAction",
+      "method": "GET"
+    },
+
+
+
+
     "dobavitFile":{
       "path":"/load/files",
       "controller":"DIMA\\WSPACE\\Controllers\\PanelController::fileDobavitAction",

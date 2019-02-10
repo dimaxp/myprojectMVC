@@ -38,9 +38,10 @@ $this->proverkaCookie();
         $zadachi = $this->PanelModel->getAllZadachi();
         $zametki = $this->PanelModel->getAllZametki();
         $motivators = $this->PanelModel->getAllMotivators();
+        $tetrad = $this->PanelModel->getAllTetrad();
 
 
-        $data = ['zadachi' => $zadachi, 'zametki' => $zametki, 'motivators' => $motivators];
+        $data = ['zadachi' => $zadachi, 'zametki' => $zametki, 'motivators' => $motivators, 'tetrad' => $tetrad];
         return parent::generateResponse($view, $data);
     }
 
@@ -132,6 +133,21 @@ $this->proverkaCookie();
         $answer =  $this->PanelModel->dobavitZametka($postData);
         return parent::generateAjaxResponse($answer);
     }
+
+
+
+
+
+
+    public function tetradAddAction($request) {
+        $postData = $request->post();
+        $answer =  $this->PanelModel->tetradAdd($postData);
+        return parent::generateAjaxResponse($answer);
+    }
+
+
+
+
 
 
 

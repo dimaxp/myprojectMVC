@@ -90,6 +90,44 @@
 
 
 
+            <div class="block_tetradi">
+                <div class="btn btn-success" id="otkritinputtetrad">
+                    <i class="fa fa-sticky-note" aria-hidden="true"></i> Новая тетрадь
+                </div>
+
+
+                <form class="" id="add_new_tetrad" name="add_new_tetrad" action="/tetrad/add">
+                    <div class="row intetrad">
+
+                        <div class="col-md-8 col-12">
+                            <input class="" id="tetrad" autofocus autocomplete="off" name="name_tetrad" maxlength="200" minlength="1" required  placeholder="Название тетради" type="text"></label>
+                        </div>
+
+                        <div class="offset-md-1 col-md-3  col-12">
+                            <button class="btn btn-success gotetrad" type="submit">Добавить</button>
+                        </div>
+
+                    </div>
+                </form>
+
+
+                <div class="tetrads" id="paneltetradey">
+
+                    <? foreach ($tetrad as $key => $tetrad_one): ?>
+
+
+                    <a href="/tetrad/view/<? echo $tetrad_one['id']; ?>" class="tetrad_one"><? echo $tetrad_one['title']; ?></a>
+                    <? endforeach ?>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
 
 
 
