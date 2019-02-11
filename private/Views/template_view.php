@@ -46,14 +46,9 @@
 
 
 
-<script  src="/static/js/zadacha.js"></script>
-<script  src="/static/js/motivator.js"></script>
-<script  src="/static/js/bezperezagruza.js"></script>
 <script  src="/static/js/skeditors.js"></script>
-<script  src="/static/js/drugieeffecti.js"></script>
-<script  src="/static/js/tetradi.js"></script>
 
-
+<script  src="/static/js/bezperezagruza.js"></script>
 <!--<script>
 
 

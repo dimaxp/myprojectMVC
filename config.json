@@ -101,6 +101,27 @@
       "method": "GET"
     },
 
+    "tetradDel":{
+      "path":"/tetrad/del/{id:\\d+}",
+      "controller":"DIMA\\WSPACE\\Controllers\\TetradController::delTetAction",
+      "method": "GET"
+    },
+
+    "tetradOneZapisDel":{
+      "path":"/tetrad/onezapisdel/{id:\\d+}",
+      "controller":"DIMA\\WSPACE\\Controllers\\TetradController::delTetOneZapisAction",
+      "method": "GET"
+    },
+
+
+
+    "tetradOneZapisAdd":{
+      "path":"/tetrad/onezapisadd",
+      "controller":"DIMA\\WSPACE\\Controllers\\TetradController::addTetOneZapisAction",
+      "method": "POST"
+    },
+
+
 
 
 

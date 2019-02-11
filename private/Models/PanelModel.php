@@ -59,6 +59,18 @@ class PanelModel
 
 
 
+    public function getOneTetradDesc($id){
+        $chto2 = $id['id'];
+
+
+
+        $sql = "SELECT * FROM tetrad_desc WHERE tetrad_id = :tetrad_id";
+        $params = [
+            'tetrad_id' => $chto2 ];
+
+
+        return $this->db->execute($sql, $params);
+    }
 
 
 
@@ -67,13 +79,109 @@ class PanelModel
 
 
 
-        $sql = "SELECT * FROM tetrad_desc WHERE terad_id =:terad_id";
+        $sql = "SELECT * FROM tetrad WHERE id =:terad_id";
         $params = [
             'terad_id' => $chto ];
 
 
-        return $this->db->execute($sql, $params);
+        return $this->db->execute($sql, $params, $all=false);
     }
+
+
+
+
+    public function delOneTetrad($id){
+        $chto = $id['id'];
+
+        $sql = 'DELETE FROM tetrad WHERE `id`=:id';
+        $params = [
+            'id' => $chto ];
+
+       $odin = $this->db->execute($sql, $params);
+
+
+
+        if (!$odin) {
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+
+
+
+
+    public function delOneZapisTetrad($id){
+        $chto = $id['id'];
+
+        $sql = 'DELETE FROM tetrad_desc WHERE `id`=:id';
+        $params = [
+            'id' => $chto ];
+
+        $result = $this->db->execute($sql, $params);
+
+
+
+        if (!$result) {
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function tetradAddoneZapis($serdce){
+
+        $soderganie = $serdce['tetrad_desc_one'];
+        $tetrad_id = $serdce['tetrad_id'];
+
+
+/*        $sql = "INSERT INTO tetrad_desc (tetrad_id, text)
+VALUES (:tetrad_id, :tetrad_desc_one)";*/
+
+
+        $sql = "INSERT INTO tetrad_desc (tetrad_id, text)
+VALUES (:tetrad_id, :tetrad_desc_one)";
+
+
+
+        $params = [
+            'tetrad_id' => $tetrad_id,
+            'tetrad_desc_one' => $soderganie
+        ];
+
+
+        $result = $this->db->execute($sql, $params);
+
+        $lastid = $this->db->connection->lastInsertId();
+
+        if($result === false) {
+            // дописать какую нибудь ощибку если в базе не записалось
+
+        }
+        return $lastid;
+
+
+}
+
+
+
+
 
 
 

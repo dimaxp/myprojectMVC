@@ -134,7 +134,7 @@
 
 
 
-<div class="block_zametki">
+<div id="block_zametki">
 
             <div class="btn btn-success" id="new_zametka_button">
               <i class="fa fa-sticky-note" aria-hidden="true"></i> Новая заметка
@@ -174,6 +174,7 @@
                     <p><? echo $zametka['text_zametka'] ?></p>
                 </div>
             </div>
+
             <? endforeach ?>
 
 </div>  <!--конец блока с заметками-->
@@ -252,3 +253,11 @@
         </div>
     </div>
 </div>
+
+
+    <script  src="/static/js/zadacha.js"></script>
+    <script  src="/static/js/motivator.js"></script>
+
+
+    <script  src="/static/js/drugieeffecti.js"></script>
+    <script  src="/static/js/tetradi.js"></script>

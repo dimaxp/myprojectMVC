@@ -131,7 +131,7 @@ ul.vnmenu li {float:right; margin-left: 20px;}
 
 #add_zametka { margin-top: 30px;}
 
-.block_zametki {margin-top: 30px;}
+#block_zametki {margin-top: 30px;}
 
 
 #zakrit_zametka_button {padding: 10px;
@@ -204,6 +204,40 @@ ul.vnmenu li {float:right; margin-left: 20px;}
     color: #000;
 }
 
+
+
+#add_zapis_tetrad {
+    margin: 0 auto;
+}
+
+
+.mauto {    margin: 0 auto;}
+.name_tet { }
+.del_tet { }
+
+
+.block_zapis_tetrad {background: #FFF;
+    overflow: hidden;
+    text-align: left;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    margin: 0 auto; padding-bottom: 20px;}
+
+.delet_zametka_t { width: 100%;
+    clear: both; overflow: hidden;}
+
+
+.delet_zametka_t
+{width: 5%;
+    height: 37px;
+    float: right;
+    text-align: center; cursor: pointer;
+    margin-top: 15px;
+    color: #599855;
+    text-align: center;}
+
+
+.samtexttetr {    padding: 40px 20px 10px 20px}
 
 
 @media screen and (max-width:768px) {

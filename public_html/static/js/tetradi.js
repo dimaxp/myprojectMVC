@@ -2,6 +2,9 @@
     'use strict';
 
 
+
+
+
     function sendTetrad() {
 
 
@@ -59,6 +62,11 @@
 
 
 
+
+
+
+
+
     function addFormZametakListener() {
         let nashaformzadach = document.getElementById('add_new_tetrad');
         nashaformzadach.addEventListener('submit', sendTetrad);
@@ -66,6 +74,11 @@
 
 
     addFormZametakListener();
+
+
+
+
+
 
 
 

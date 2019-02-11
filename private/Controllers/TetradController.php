@@ -23,10 +23,41 @@ class TetradController extends Controller
 
     public function viewTetAction($request){
         $getData = $request->params();
-        $accaunt_info = $this->PanelModel->getOneTetrad($getData);
+        $samatetrad = $this->PanelModel->getOneTetrad($getData);
+        $tetrad_desc = $this->PanelModel->getOneTetradDesc($getData);
         $view = 'tetrad_view.php';
-        $data = ['tetrad_info' => $accaunt_info];
+        $data = ['samatetrad' => $samatetrad, 'tetrad_desc' => $tetrad_desc];
         return parent::generateResponse($view, $data);
+    }
+
+
+
+    public function delTetAction($request){
+        $getData = $request->params();
+       $this->PanelModel->delOneTetrad($getData);
+
+
+            header("Location: /panel");
+            exit;
+
+
+    }
+
+
+
+    public function delTetOneZapisAction($request){
+        $getData = $request->params();
+        $answer = $this->PanelModel->delOneZapisTetrad($getData);
+        return parent::generateAjaxResponse($answer);
+
+
+
+    }
+
+    public function addTetOneZapisAction($request) {
+        $postData = $request->post();
+        $answer =  $this->PanelModel->tetradAddoneZapis($postData);
+        return parent::generateAjaxResponse($answer);
     }
 
 
